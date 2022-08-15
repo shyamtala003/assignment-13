@@ -13,13 +13,13 @@ body
 
 .container {
     width: 100%;
-    height: 100vh;
     background: url(./image/bg.svg) no-repeat;
     background-size: cover;
     background-position: center;
 }
 
 nav {
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -49,20 +49,59 @@ li.btn {
     background: #45B3F2;
     padding: 10px 30px;
 }
+.menuIcon
+{
+    display: none;
+}
+@media screen and (max-width:1030px)
+{
+    .menuIcon
+    {
+        display: inline;
+        color: #fff;
+        font-size: 25px;
+    }
+    nav ul
+    {
+        position: absolute;
+        display: none;
+        flex-direction: column;
+        padding: 20px;
+        background: rgba(0, 0, 0,.6);
+        top: 80%;
+        right: 8%;
+        backdrop-filter: blur(50px);
+        border-radius: 10px;        
+    }
+    nav ul li
+    {
+        font-size:2rem;
+    }
+    .menuIcon:focus ~  ul
+    {
+        display: flex;
+    }
+}
 
 /* _____________________top content started---------------------- */
 section.top__section {
     margin-top: 0px;
+    width: 100%;
 }
 
 .content {
     padding: 0px 8%;
     display: flex;
     align-items: flex-start;
-    justify-content: space-between;
+    justify-content: center;
+    flex-wrap: wrap-reverse;
 
 }
 
+.text__content
+{
+    max-width: 600px;
+}
 .text__content h1 {
     margin-top: 80px;
     color: #fff;
@@ -89,7 +128,7 @@ button.btn {
 
 img.img_content {
     min-width: 360px;
-    max-width: 700px;
+    max-width: 600px;
 }
 
 /* ---------------------hero section start----------------------- */
@@ -98,13 +137,13 @@ section.hero__section {
 }
 
 .text__content h3 {
-    color: #000;
+    color: #fff;
     text-transform: capitalize;
     font-size: 40px;
 }
 
 .hero__section .text__content p {
-    color: #000;
+    color: rgba(255, 255, 255, 0.795);
 }
 
 .detail {
@@ -112,7 +151,6 @@ section.hero__section {
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
-    gap: 10px;
 }
 
 .detail img {
@@ -139,20 +177,40 @@ section.feature__section h1
 {
     font-size: 45px;
     text-transform: capitalize;
-    width: 40%;
+    width: 70%;
+    color: #fff;
 }
 .card_container
 {
     margin-top: 30px;
     padding: 10px 8%;
     width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    display: grid;
+    place-items: center;
+    grid-template-columns: repeat(4,1fr);
+    grid-gap: 60px;
+}
+@media screen and (max-width:1550px){
+    .card_container
+    {
+        grid-template-columns: repeat(3,1fr);
+    }
+}
+@media screen and (max-width:1160px){
+    .card_container
+    {
+        grid-template-columns: repeat(2,1fr);
+    }
+}
+@media screen and (max-width:850px){
+    .card_container
+    {
+        grid-template-columns: repeat(1,1fr);
+    }
 }
 .card
 {
-    width: 300px;
+    max-width: 350px;
     background-color: #fff;
     border-radius: 10px;
 }
